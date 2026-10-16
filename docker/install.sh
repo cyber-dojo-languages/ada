@@ -9,8 +9,8 @@
 apt-get update
 apt-get install --yes --no-install-recommends gnat gprbuild
 
-# Read by check_version.sh, and by the install.sh of images built on this one,
-# so both state the version this image actually holds. The compiler is asked
+# Recorded in /versions.json and read by the install.sh of images built on
+# this one, so both state the version this image actually holds. The compiler is asked
 # rather than the package index, so a version recorded here is one the image
 # can run. Its first line reads "GNAT 14.2.0".
 readonly GNAT_VERSION=$(gnat --version | sed --quiet '1s/^GNAT \([0-9][0-9.]*\).*/\1/p')
