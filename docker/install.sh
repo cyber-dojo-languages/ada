@@ -22,6 +22,16 @@ if [ -z "${GNAT_VERSION}" ]; then
   exit 1
 fi
 
-echo "{\"gnat\":\"${GNAT_VERSION}\"}" > /versions.json
+# The language is named Ada, as a learner knows it, though the version is
+# gnat's: that is the compiler which implements it here.
+cat > /versions.json <<EOF
+{
+  "language": {
+    "name": "Ada",
+    "version": "${GNAT_VERSION}"
+  },
+  "test_frameworks": []
+}
+EOF
 
 rm -rf /var/lib/apt/lists/*
